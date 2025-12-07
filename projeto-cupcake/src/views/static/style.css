@@ -1,0 +1,101 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Fundo cinza bem clarinho */
+    color: #333;
+}
+
+h2 {
+    color: #d63384; /* Rosa escuro para títulos */
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* --- BARRA DE NAVEGAÇÃO (NAVBAR) --- */
+.navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave embaixo */
+}
+
+.navbar-brand {
+    color: #d63384 !important; /* Marca em rosa */
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+/* --- CARTÕES DE PRODUTO (Baseado na Pág. 26 do PDF) --- */
+.card {
+    border: none; /* Sem borda preta */
+    border-radius: 15px; /* Cantos arredondados */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Sombra suave */
+    transition: transform 0.2s; /* Animação ao passar o mouse */
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Sobe um pouquinho quando passa o mouse */
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    background-color: #eee; /* Cor de fundo enquanto carrega */
+}
+
+.card-body {
+    text-align: center;
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #444;
+}
+
+.card-subtitle {
+    font-size: 1.3rem;
+    color: #d63384; /* Preço em rosa */
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+/* --- BOTÕES PERSONALIZADOS --- */
+/* Estilo para ficar igual ao botão "Adicionar" rosa do seu wireframe */
+.btn-pink {
+    background-color: #e91e63; /* Rosa vibrante do PDF */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    width: 100%; /* Botão ocupa a largura toda do card */
+}
+
+.btn-pink:hover {
+    background-color: #c2185b; /* Rosa mais escuro ao passar o mouse */
+    color: white;
+}
+
+/* --- FORMULÁRIOS (Login e Registro) --- */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* --- MENSAGENS DE ALERTA (FLASH) --- */
+.alert {
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
