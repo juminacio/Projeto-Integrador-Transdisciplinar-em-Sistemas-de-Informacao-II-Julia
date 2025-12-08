@@ -4,17 +4,17 @@ from flask import current_app
 from flask import Blueprint, render_template, request, redirect, url_for, session, flash
 from models.database import db, Usuario, Produto, Carrinho, ItemCarrinho
 
-# Criamos um "Blueprint". É como se fosse uma "parte" do aplicativo que o app.py vai importar.
+
 main_bp = Blueprint('main', __name__)
 
-# --- ROTA DA PÁGINA INICIAL (CATÁLOGO) ---
+
 @main_bp.route('/')
 def index():
-    # Busca todos os produtos disponíveis no banco de dados
+
     produtos = Produto.query.filter_by(disponivel=True).all()
     return render_template('home.html', produtos=produtos)
 
-# --- ROTAS DE AUTENTICAÇÃO (LOGIN/REGISTRO/LOGOUT) ---
+
 
 @main_bp.route('/registro', methods=['GET', 'POST'])
 def registro():
@@ -23,13 +23,13 @@ def registro():
         email = request.form.get('email')
         senha = request.form.get('senha')
 
-        # Verifica se o email já existe
+
         usuario_existente = Usuario.query.filter_by(email=email).first()
         if usuario_existente:
             flash('Este e-mail já está cadastrado.')
             return redirect(url_for('main.registro'))
 
-        # Cria novo usuário
+
         novo_usuario = Usuario(nome=nome, email=email, senha=senha)
         db.session.add(novo_usuario)
         db.session.commit()
@@ -47,7 +47,6 @@ def login():
 
         usuario = Usuario.query.filter_by(email=email).first()
 
-        # Validação simples de senha (para produção, use hash!)
         if usuario and usuario.senha == senha:
             session['user_id'] = usuario.id
             session['user_nome'] = usuario.nome
@@ -73,15 +72,13 @@ def adicionar_carrinho(produto_id):
 
     usuario_id = session['user_id']
     
-    # Verifica se o usuário já tem um carrinho, se não, cria um
+
     carrinho = Carrinho.query.filter_by(usuario_id=usuario_id).first()
     if not carrinho:
         carrinho = Carrinho(usuario_id=usuario_id)
         db.session.add(carrinho)
         db.session.commit()
 
-    # Adiciona o item ao carrinho
-    # Verifica se o item já está lá para apenas aumentar a quantidade
     item = ItemCarrinho.query.filter_by(carrinho_id=carrinho.id, produto_id=produto_id).first()
     if item:
         item.quantidade += 1
@@ -105,7 +102,6 @@ def ver_carrinho():
     total = 0
     if carrinho:
         itens = carrinho.itens
-        # Calcula o total
         for item in itens:
             total += item.produto.preco * item.quantidade
 
@@ -123,7 +119,7 @@ def remover_item(item_id):
         flash('Item removido.')
     
     return redirect(url_for('main.ver_carrinho'))
-# --- ROTA DE ADMINISTRAÇÃO (ADICIONAR PRODUTO) ---
+    
 @main_bp.route('/admin/adicionar', methods=['GET', 'POST'])
 def adicionar_produto():
     if request.method == 'POST':
@@ -131,7 +127,7 @@ def adicionar_produto():
         preco = float(request.form.get('preco'))
         sabor = request.form.get('sabor')
         
-        # LÓGICA DE UPLOAD DE IMAGEM
+
         arquivo = request.files.get('imagem')
         caminho_imagem = '' 
 
@@ -155,5 +151,6 @@ def adicionar_produto():
         
         flash('Cupcake adicionado com sucesso!')
         return redirect(url_for('main.index'))
+
 
     return render_template('adicionar_produto.html')
