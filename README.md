@@ -1,10 +1,10 @@
-# 🧁 CupcakeApp
+CupcakeApp
 
 Sistema de e-commerce para venda de cupcakes, desenvolvido como parte do **Projeto Integrador Transdisciplinar II (PIT-II)** do curso de Sistemas de Informação.
 
 O projeto segue a arquitetura **MVC (Model-View-Controller)** e utiliza **Python com Flask** no backend.
 
-## 🚀 Funcionalidades
+Funcionalidades
 
 * **Catálogo de Produtos:** Visualização de cupcakes disponíveis com filtros visuais.
 * **Sistema de Autenticação:** Cadastro e Login de usuários.
@@ -13,7 +13,7 @@ O projeto segue a arquitetura **MVC (Model-View-Controller)** e utiliza **Python
 * **Persistência de Dados:** Banco de dados relacional (SQLite/SQLAlchemy).
 * **Interface Responsiva:** Design adaptável para mobile usando Bootstrap 5.
 
-## 🛠️ Tecnologias Utilizadas
+Tecnologias Utilizadas
 
 * **Linguagem:** Python 3.x
 * **Framework Web:** Flask
@@ -21,7 +21,7 @@ O projeto segue a arquitetura **MVC (Model-View-Controller)** e utiliza **Python
 * **Frontend:** HTML5, CSS3, Jinja2, Bootstrap 5
 * **Banco de Dados:** SQLite (padrão do projeto)
 
-## 📂 Estrutura do Projeto (MVC)
+Estrutura do Projeto (MVC)
 
 O projeto foi organizado seguindo rigorosamente o padrão de arquitetura de software MVC:
 
